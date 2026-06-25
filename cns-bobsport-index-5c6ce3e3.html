@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 bob体育 的几件事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fbede6 0%, #f6dac8 55%, #f0c6aa 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #3e2e24;
+    }
+
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: #fffcf9;
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 18px 30px -12px rgba(130, 70, 40, 0.20), 0 6px 12px -4px rgba(80, 40, 20, 0.08);
+      padding: 2.8rem 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 540px) {
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 28px;
+      }
+    }
+
+    .hero-line {
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      color: #7b5e4b;
+      border-left: 4px solid #d9b094;
+      padding-left: 1.2rem;
+      margin-bottom: 2.2rem;
+      font-weight: 370;
+    }
+
+    .hero-line strong {
+      font-weight: 580;
+      color: #4d3325;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 480;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+      color: #3d2b20;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+    }
+
+    .intro-text a {
+      color: #9f6b4b;
+      text-decoration: none;
+      font-weight: 550;
+      padding: 0.1rem 0.25rem;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .intro-text a:hover {
+      background: #e7d3c1;
+      color: #5c3823;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 2.2rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .feature-list li {
+      background: #f7eee7;
+      padding: 0.9rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      color: #3b2a1f;
+      box-shadow: inset 0 1px 2px rgba(255, 240, 230, 0.7);
+    }
+
+    .feature-list li::before {
+      content: "·";
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: #ba8b6b;
+      margin-right: 0.2rem;
+    }
+
+    .scene-note {
+      background: #f6ede6;
+      border-radius: 28px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0 1.2rem;
+      font-size: 0.98rem;
+      border: 1px solid #e7d3c1;
+    }
+
+    .scene-note span {
+      display: inline-block;
+      background: #d9bca8;
+      color: #2f1f17;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      font-weight: 470;
+    }
+
+    .faq-mini {
+      margin-top: 2.4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eddcca;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.7rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 470;
+      cursor: pointer;
+      color: #634b38;
+      padding: 0.2rem 0;
+      font-size: 0.98rem;
+      list-style: none;
+      display: inline-block;
+    }
+
+    .faq-mini summary::before {
+      content: "▸ ";
+      color: #b48665;
+      font-size: 1.1rem;
+    }
+
+    .faq-mini details[open] summary::before {
+      content: "▾ ";
+    }
+
+    .faq-mini details p {
+      margin: 0.5rem 0 0.8rem 1.6rem;
+      font-size: 0.93rem;
+      color: #4f3929;
+      border-left: 2px solid #ddc4b0;
+      padding-left: 1rem;
+    }
+
+    .closing {
+      margin-top: 2.6rem;
+      font-size: 0.97rem;
+      color: #5f4737;
+      padding: 1rem 0 0.2rem;
+      border-top: 1px dashed #dac0ac;
+      text-align: left;
+    }
+
+    .closing a {
+      color: #8f6244;
+      text-decoration: none;
+      border-bottom: 1px solid #dbbc9e;
+      font-weight: 460;
+    }
+
+    .closing a:hover {
+      border-bottom-color: #6f422c;
+      color: #5f3823;
+    }
+
+    .soft-button {
+      display: inline-block;
+      background: #e7d3c1;
+      color: #3e2b1e;
+      padding: 0.45rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.01em;
+      border: none;
+      font-weight: 420;
+      margin: 0.3rem 0;
+    }
+
+    .soft-button:hover {
+      background: #dbbca3;
+      transform: scale(1.01);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3cdba;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    @media (max-width: 460px) {
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero-line">
+      <strong>慢慢讲</strong> · 一个站点的轮廓
+    </div>
+
+    <h1>关于 bob体育 的几件事</h1>
+
+    <p class="intro-text">
+      有些网站不需要喧哗，只需要被认真介绍。这个页面就是为了聊聊 <a href="https://cns-bobsport.com">bob体育</a> 到底是什么样的一个地方——不是广告，更像一份安静的说明。
+    </p>
+
+    <p>
+      如果你偶然发现这个地址，可能会好奇它承载什么。它不是某个大平台的分支，也不是临时页面。从结构上看，它更像一个自足的信息节点，围绕体育相关内容展开，保持自身的节奏。
+    </p>
+
+    <!-- 特点列表 -->
+    <ul class="feature-list">
+      <li>内容指向明确——围绕体育相关领域，不庞杂，不堆砌无关信息</li>
+      <li>界面风格稳重——没有弹窗、悬浮广告或诱导点击的按钮，浏览感受干净</li>
+      <li>信息层次清晰——从导航到正文都有一种朴素的秩序感，不让人迷失</li>
+      <li>更新有节制——不追求日更或者刷屏，更像一个定期维护的安静空间</li>
+    </ul>
+
+    <!-- 场景片段 -->
+    <div class="scene-note">
+      <span>一个侧面</span> 有朋友说，第一次打开 <a href="https://cns-bobsport.com" style="color:#8f6244;text-decoration:underline;text-underline-offset:3px;">bob体育</a> 时觉得它像一间光线柔和的小工作室——没有紧迫感，也没有多余的装饰。这种印象或许恰好说出了它的基调。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <details>
+        <summary>这个站点主要提供什么？</summary>
+        <p>它围绕体育内容组织信息和资源，目前更偏向于信息聚合与呈现，不直接提供交易或即时竞猜服务。</p>
+      </details>
+      <details>
+        <summary>内容可靠吗？有没有审核？</summary>
+        <p>页面内容经过基本的核对与分类，没有标题党或虚假信息。当然，任何来源都建议使用者自行判断。</p>
+      </details>
+      <details>
+        <summary>为什么页面风格这么简洁？</summary>
+        <p>简洁是为了降低干扰。让阅读者把注意力放在信息本身，而不是被动态效果或频繁弹窗分散。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 + 自然链接 -->
+    <div class="closing">
+      <p>如果你想自己感受一下，可以直接去 <a href="https://cns-bobsport.com">bob体育</a> 看一眼。也许它正好符合你对“一个安静体育站点”的想象，也许不是——但至少值得一次平和的浏览。</p>
+      <p style="margin-top:0.8rem; font-style:normal;">没有催促，没有浮夸。你看到的，就是它本来的样子。</p>
+      <hr>
+      <p style="font-size:0.9rem; opacity:0.75; margin-bottom:0;">—— 叙述完毕。谢谢阅读。</p>
+    </div>
+
+    <!-- 装饰性软按钮（仅示意，不承担链接功能，不干扰主链接） -->
+    <div style="margin-top: 1rem; text-align: right;">
+      <span class="soft-button">· 一份介绍 ·</span>
+    </div>
+  </div>
+</body>
+</html>
